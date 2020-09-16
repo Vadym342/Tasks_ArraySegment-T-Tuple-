@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace _2Kurs_lab2
 {
@@ -24,11 +25,13 @@ namespace _2Kurs_lab2
             // t.Task_1_2();
             // t.Task_2_1();
             //t.Task_2_2();
-            t.Task_3();
+            //t.Task_3();
+            GasComp gasComp = new GasComp();
+            gasComp.Fu();
         }
     }
 
-    class Task_
+    class Task_ : GasComp
     {
         private const int size = 5;
         public void Task_1_1()
@@ -213,7 +216,7 @@ namespace _2Kurs_lab2
 
         public void Task_3()
         {
-            int count = 0;
+           
             string str = "AaEeIiYyOoUu";
             String text = "TExt          teeeeeet eaaaar e te tet et";
             text = text.Trim(new char[] { ',', '.' });
@@ -250,6 +253,18 @@ namespace _2Kurs_lab2
     class GasComp : Flat
     {
 
+        public void Fu()
+        {
+            Flat flat = new Flat();
+            flat.Funcc();
+        }
+        public void Service()
+        {
+            Console.WriteLine("Next service will  be 20 10 2020");
+
+
+
+        }
 
 
 
@@ -258,7 +273,7 @@ namespace _2Kurs_lab2
     class Flat
     {
        
-        private string number_flat;
+        private string number_flat ;
         private double count_gas;
         private int count_people;
         private bool counter;
@@ -275,9 +290,62 @@ namespace _2Kurs_lab2
             this.Count_number = Count_number;
             this.price = price;
         }
-      
+       public Tuple<string, int, double, string, double, int, int>[] b;
+        
+        public void Funcc()
+        {
+            Console.WriteLine("Enter count of new flat");
+            int f = Convert.ToInt32(Console.ReadLine());
+         
+         
+            Console.WriteLine("========================");
+            Console.WriteLine("Enter name owner ");
+            string name_owner = Console.ReadLine();
+            Console.WriteLine("Enter number of counter");
+            int Count_number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter price");
+            double price = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter number flat");
+            string number_flat = Console.ReadLine();
+            Console.WriteLine("Enter count gas");
+            double count_gas = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter count people");
+            int count_people = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter 1 if you have the counter. \n Enter 2 if you don't have the counter");
+            int counter = Convert.ToInt32(Console.ReadLine());
+            double pricc=0;
+            if (counter == 1)
+            {
+                pricc = count_gas;
+            }
+            else if (counter == 2)
+            {
+                pricc = count_people + (count_gas / 2);
+            }
+            else Console.WriteLine("You should enter trueth info about counter");
+            // Tuple<string, int, decimal, string, double, int, bool> tuple = new Tuple<string, int, decimal, string, double, int, bool>(name_owner, Count_number, price, number_flat, count_gas, count_people, counter);
+            var list = new List<Tuple<string, int, double, string, double, int, int>>();
 
-    
+            list.Add(Tuple.Create(name_owner, Count_number, price*pricc, number_flat, count_gas, count_people, counter));
+           
+
+            b = list.ToArray();
+
+
+
+            void print_flat()
+            {
+                for (int i = 0; i < b.Length; i++)
+                {
+                    Console.WriteLine("EE :" + b[i] + "\n");
+                }
+            }
+           
+           
+        }
+       
+
+
     }
     //class Owner: Flat
     //{
