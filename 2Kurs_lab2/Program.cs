@@ -20,17 +20,64 @@ namespace _2Kurs_lab2
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Clear();
             }
+            bool ShowMenu = true;
+            while (ShowMenu)
+            {
+                ShowMenu = MainMenu();
+            }
+
+        }
+        private static bool MainMenu()
+        {
             Task_ t = new Task_();
-            //t.Task_1();
-            // t.Task_1_2();
-            // t.Task_2_1();
-            //t.Task_2_2();
-            //t.Task_3();
             GasComp gasComp = new GasComp();
-            gasComp.Fu();
+           
+            Console.Clear();
+            Console.WriteLine("Choose an option:");
+            Console.WriteLine("1. Task 1.1");
+            Console.WriteLine("2. Task 1.2");
+            Console.WriteLine("3. Task 2.1");
+            Console.WriteLine("4. Task 2.2");
+            Console.WriteLine("5. Task 3");
+            Console.WriteLine("6. Task 4");
+            Console.WriteLine("7. Exit");
+            Console.Write("\r\nSelect an option: ");
+            switch (Console.ReadLine())
+            {
+
+                case "1":
+                    t.Task_1_1();
+                    return true;
+                case "2":
+                    t.Task_1_2();
+                    return true;
+                case "3":
+                    t.Task_2_1();
+                    return true;
+                case "4":
+                    t.Task_2_2();
+                    return true;
+                case "5":
+                    t.Task_3();
+                    return true;
+                case "6":
+                    gasComp.Fu();
+                    return true;
+                case "7":
+                    return false;
+                default:
+                    Console.WriteLine("Error, wrong menu position! TRY AGAIN");
+                    return true;
+
+
+
+            }
+
+
+
+
         }
     }
-
     class Task_ : GasComp
     {
         private const int size = 5;
