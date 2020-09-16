@@ -252,16 +252,26 @@ namespace _2Kurs_lab2
     }
     class GasComp : Flat
     {
-
+        Flat flat = new Flat();
         public void Fu()
         {
-            Flat flat = new Flat();
+            
             flat.Funcc();
         }
         public void Service()
         {
             Console.WriteLine("Next service will  be 20 10 2020");
+            Console.WriteLine("If have a problem with gas press Enter numberflat");
+            string numb = Console.ReadLine();
+            for(int i=0;i<b.Length;i++)
+            {
+                if (b[i].Item4 == numb)
+                {
+                    Console.WriteLine("This weak we will fix your problem ");
+                }
+                else Console.WriteLine("Your flat not exist");
 
+            }
 
 
         }
@@ -289,6 +299,11 @@ namespace _2Kurs_lab2
             this.name_owner = name_owner;
             this.Count_number = Count_number;
             this.price = price;
+        }
+       string Get_number_flat()
+        {
+            return this.number_flat;
+
         }
        public Tuple<string, int, double, string, double, int, int>[] b;
         
